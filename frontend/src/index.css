@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply transition-colors duration-300 ease-out;
+  }
+  
+  body {
+    @apply bg-background text-primary font-inter;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gold hover:bg-opacity-90 text-background font-semibold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg transform-gpu;
+  }
+  
+  .btn-secondary {
+    @apply bg-card hover:bg-opacity-80 text-primary border border-gold font-semibold py-3 px-8 rounded-full transition-all duration-300 transform-gpu;
+  }
+  
+  .input-field {
+    @apply w-full bg-card border border-border focus:border-gold text-primary px-4 py-3 rounded-2xl outline-none transition-all duration-300 placeholder-secondary focus:scale-[1.02] focus:shadow-lg;
+  }
+  
+  .card {
+    @apply bg-card border border-border rounded-2xl p-6 hover:border-gold transition-all duration-300 transform-gpu hover:scale-[1.02] hover:shadow-2xl;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.7s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.7s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s linear infinite;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-gold to-yellow-600 bg-clip-text text-transparent;
+  }
+  
+  .luxury-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .luxury-shadow-lg {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .luxury-shadow-xl {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+  }
+
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out transform-gpu;
+  }
+
+  .transition-ultra-smooth {
+    @apply transition-all duration-500 ease-out transform-gpu;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2 transform-gpu;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:luxury-shadow-lg;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105 transform-gpu;
+  }
+
+  .hover-rotate {
+    @apply transition-transform duration-300 hover:rotate-3 transform-gpu;
+  }
+
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(17, 17, 17, 0.8);
+    border: 1px solid rgba(198, 167, 94, 0.2);
+  }
+
+  .gradient-border {
+    background: linear-gradient(45deg, #C6A75E, #D4B876, #C6A75E);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Advanced Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(198, 167, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(198, 167, 94, 0.6);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #C6A75E, #D4B876);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #D4B876, #E2C589);
+  box-shadow: 0 0 10px rgba(198, 167, 94, 0.5);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance Optimizations */
+.optimize-rendering {
+  contain: layout style paint;
+}
+
+.optimize-animations {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+/* Loading States */
+.skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #2a2a2a 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Focus States */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-gold focus:ring-opacity-50 focus:ring-offset-2 focus:ring-offset-background;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .mobile-smooth {
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
